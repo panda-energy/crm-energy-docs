@@ -3,7 +3,7 @@ title: "Cambio de comercializador (proceso ATR)"
 ---
 
 
-Una vez que el contrato está firmado, Panda Energy gestiona automáticamente el cambio de comercializador ante la distribuidora eléctrica. Este proceso regulado, conocido como ATR (Acceso de Terceros a la Red), se realiza mediante el intercambio de mensajes XML regulatorios con la distribuidora correspondiente.
+Una vez que el contrato está firmado, Kuro Energy gestiona automáticamente el cambio de comercializador ante la distribuidora eléctrica. Este proceso regulado, conocido como ATR (Acceso de Terceros a la Red), se realiza mediante el intercambio de mensajes XML regulatorios con la distribuidora correspondiente.
 
 ---
 
@@ -17,7 +17,7 @@ El C1 es el flujo más habitual: el cliente ya tiene suministro activo con otra 
 
 3. **Procesamiento por parte de la distribuidora.** La distribuidora recibe el mensaje, lo válida contra sus sistemas y emite una respuesta.
 
-4. **Recepcion de la respuesta.** Panda Energy recoge automáticamente la respuesta de la distribuidora y actualiza el estado del contrato:
+4. **Recepcion de la respuesta.** Kuro Energy recoge automáticamente la respuesta de la distribuidora y actualiza el estado del contrato:
 
    - **Aceptado**: el cambio ha sido aprobado. El contrato pasa a estado "activo" y el cambio se efectuara en la fecha que indica la distribuidora. Se notifica al comercial y al cliente.
    - **Rechazado**: la distribuidora ha encontrado un problema (datos incorrectos, deuda pendiente del anterior comercializador, CUPS no contractable, etc.). Se registra el motivo del rechazo. El agente de inteligencia artificial de back-office analiza automáticamente la causa y propone una correccion (disponible próximamente).
@@ -43,7 +43,7 @@ Se utiliza para dar de baja un punto de suministro que ya no se necesita. La com
 
 ## Panel de seguimiento ATR
 
-Todos los mensajes ATR enviados y recibidos se visualizan en un panel centralizado dentro de Panda Energy. Desde este panel el operador puede:
+Todos los mensajes ATR enviados y recibidos se visualizan en un panel centralizado dentro de Kuro Energy. Desde este panel el operador puede:
 
 - Ver el estado de cada mensaje (enviado, aceptado, rechazado, pendiente).
 - Filtrar por distribuidora, tipo de flujo (C1, A3, B1) o estado.
