@@ -1,0 +1,87 @@
+---
+title: "ATR y switching entre comercializadoras"
+---
+
+
+El módulo ATR es el nucleo regulatorio de Panda Energy. Gestiona los trámites oficiales que una comercializadora debe realizar ante las distribuidoras eléctricas para dar de alta, cambiar o dar de baja un suministro. El sistema genera la documentación requerida, la envía a la distribuidora correspondiente y hace seguimiento hasta recibir la respuesta.
+
+---
+
+## Qué es ATR
+
+ATR (Acceso de Terceros a la Red) es el conjunto de procesos regulados que permiten a las comercializadoras operar sobre la red eléctrica de las distribuidoras. Cada vez que un cliente cambia de compañía, se da de alta o se da de baja, se debe tramitar una solicitud ATR ante la distribuidora que gestiona ese punto de suministro. Para más detalle, consultar el glosario del producto.
+
+## Flujos soportados
+
+Panda Energy soporta los tres flujos principales del mercado eléctrico español:
+
+- **C1 (Cambio de comercializador):** el cliente ya tiene suministro y quiere cambiar de compañía eléctrica. Es el trámite más habitual.
+- **A3 (Alta directa):** se activa un punto de suministro que estaba dado de baja. Requiere que la instalación este en condiciones.
+- **B1 (Baja de suministro):** se solicita la desconexión del punto de suministro.
+
+## Cómo funciona el proceso
+
+1. Cuando se crea un contrato y se aprueba el envío, Panda genera automáticamente la documentación en el formato oficial exigido por la CNMC (Comision Nacional de los Mercados y la Competencia).
+2. El sistema envía la documentación a la distribuidora correspondiente a través de su canal seguro de comunicación.
+3. La distribuidora procesa la solicitud y envía una respuesta (aceptacion, rechazo o solicitud de información adicional).
+4. Panda recibe la respuesta, la interpreta y actualiza automáticamente el estado del trámite y del contrato asociado.
+
+## Distribuidoras conectadas
+
+Panda Energy está conectado con las cinco principales distribuidoras eléctricas de España, que en conjunto cubren más del 80% de los puntos de suministro del pais:
+
+- **e-distribución** (Endesa)
+- **i-DE** (Iberdrola)
+- **UFD** (Naturgy)
+- **Viesgo**
+- **Begasa**
+
+Cada distribuidora tiene su propia configuración de conexión, y el sistema gestiona automáticamente cuál utilizar según el CUPS del punto de suministro.
+
+## Estados del trámite ATR
+
+Cada mensaje ATR pasa por los siguientes estados:
+
+- **Pendiente:** generado y en cola para envio.
+- **Enviado:** transmitido a la distribuidora, esperando respuesta.
+- **Respuesta recibida:** la distribuidora ha contestado.
+- **Procesado:** la solicitud fue aceptada y el cambio se ha completado.
+- **Rechazado:** la distribuidora ha denegado la solicitud, con el motivo del rechazo registrado.
+- **Timeout:** no se recibio respuesta en el plazo esperado.
+
+## Reintentos automáticos
+
+Si el envío falla por un problema de comunicación, el sistema reintenta automáticamente con espera creciente: primero espera unos minutos, luego más tiempo en cada intento sucesivo. Esto evita saturar a la distribuidora y maximiza las probabilidades de exito.
+
+## Reintento manual
+
+Desde el panel de ATR, un usuario autorizado puede forzar el reenvio de cualquier mensaje que haya fallado o expirado. Esto es útil cuando se ha corregido un dato que provocaba el rechazo.
+
+## Dashboard de mensajes ATR
+
+La plataforma incluye un panel de seguimiento donde se pueden ver todos los trámites ATR en curso y finalizados. Se puede filtrar por:
+
+- Tipo de flujo (C1, A3, B1)
+- Estado del trámite
+- Distribuidora
+- Rango de fechas
+
+Cada trámite tiene su ficha detallada con la línea temporal completa de eventos.
+
+## Gestion de rechazos
+
+Cuando una distribuidora rechaza un trámite, Panda Energy registra el motivo del rechazo. El usuario puede revisar la causa (por ejemplo, datos del titular incorrectos, CUPS no válido o NIF erroneo), corregir la información y reintentar el envío sin tener que empezar de cero.
+
+---
+
+## Funcionalidades incluidas
+
+- Generacion automática de documentación regulatoria en formato oficial CNMC
+- Soporte para flujos C1 (cambio de comercializador), A3 (alta) y B1 (baja)
+- Envío automático a las 5 principales distribuidoras de España (cobertura >80% del mercado)
+- Seguimiento de estados: pendiente, enviado, respuesta recibida, procesado, rechazado, timeout
+- Reintentos automáticos con espera creciente ante fallos de comunicación
+- Reintento manual desde el panel para tramites rechazados o expirados
+- Dashboard de mensajes ATR con filtros por flujo, estado y distribuidora
+- Gestion de rechazos: registro del motivo, correccion y reenvio
+- Actualizacion automática del estado del contrato según la respuesta de la distribuidora

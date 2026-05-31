@@ -1,0 +1,83 @@
+---
+title: "Seguridad y privacidad"
+---
+
+
+Panda Energy maneja datos sensibles de clientes, contratos y consumos energéticos. La plataforma está diseñada con la seguridad y la privacidad como prioridades desde el primer día, cumpliendo con la normativa europea de protección de datos.
+
+Este documento resume las medidas aplicadas para proteger la información de cada comercializadora y sus clientes.
+
+---
+
+## Datos alojados en la Unión Europea
+
+Todos los datos de la plataforma (clientes, contratos, documentos, mensajes) se almacenan en centros de datos ubicados en la Unión Europea. Esto garantiza el cumplimiento de la normativa europea sobre transferencia de datos y ofrece la tranquilidad de que la información no sale del territorio comunitario.
+
+---
+
+## Aislamiento entre comercializadoras (multi-tenant)
+
+Cada comercializadora opera en un espacio completamente independiente dentro de la plataforma:
+
+- Los datos de una comercializadora nunca son visibles para otra.
+- El aislamiento se aplica a todos los niveles: clientes, contratos, CUPS, documentos, mensajes y configuración.
+- Cada comercializadora gestiona sus propios usuarios y permisos.
+- No existe ningun modo de consultar o cruzar datos entre organizaciones.
+
+---
+
+## Cumplimiento del RGPD
+
+La plataforma cumple con el Reglamento General de Proteccion de Datos (RGPD / GDPR):
+
+- **Derecho de acceso.** El administrador puede consultar todos los datos personales almacenados de un cliente.
+- **Derecho de exportación (portabilidad).** Los datos personales de cualquier cliente pueden exportarse en un formato estándar para ser entregados al interesado o trasladados a otro sistema.
+- **Derecho de supresión.** Los datos personales de un cliente pueden eliminarse de forma permanente cuando se solicite, incluyendo historiales, documentos y registros de comunicación.
+- **Consentimiento.** La plataforma registra el consentimiento del cliente para el tratamiento de sus datos y las comunicaciones comerciales.
+
+---
+
+## Firma digital con validez legal
+
+Los contratos firmados a través de Panda Energy tienen plena validez legal en toda la Unión Europea:
+
+- La firma electrónica cumple con el reglamento eIDAS (Electronic Identification, Authentication and Trust Services).
+- Cada firma queda asociada a evidencias legales: fecha y hora exacta, dirección de red desde la que se firmo y certificado del proveedor.
+- Los documentos firmados se almacenan de forma inmutable: no pueden modificarse despues de la firma.
+
+---
+
+## Cifrado en tránsito y en reposo
+
+- **En transito.** Todas las comunicaciones entre el usuario y la plataforma (tanto desde el navegador como desde la app móvil) viajan cifradas. Cualquier dato que se envía o recibe está protegido frente a interceptaciones.
+- **En reposo.** Los datos almacenados (bases de datos, documentos, copias de seguridad) están cifrados en los centros de datos. Aunque alguien accediera físicamente a un disco, no podria leer la información sin las claves de descifrado.
+
+---
+
+## Gestion segura de credenciales
+
+- Ningun secreto, contraseña o clave de acceso se almacena en el código fuente de la plataforma.
+- Las credenciales de acceso a sistemas externos (distribuidoras, WhatsApp, firma digital) se gestionan mediante un sistema de secretos profesional con acceso restringido.
+- Las contraseñas de los usuarios nunca se almacenan en texto legible: se procesan mediante algoritmos de protección antes de guardarse.
+
+---
+
+## Autenticacion segura
+
+- El acceso a la plataforma requiere autenticación mediante correo y contraseña, o a través de proveedores de identidad (Google, Microsoft).
+- Las sesiones tienen un tiempo de expiración limitado.
+- El administrador de cada organización puede revocar el acceso de un usuario en cualquier momento.
+
+---
+
+## Resumen de medidas
+
+| Ambito                          | Medida aplicada                                    |
+|----------------------------------|---------------------------------------------------|
+| Ubicacion de datos              | Centros de datos en la Unión Europea              |
+| Aislamiento                     | Separacion total entre comercializadoras          |
+| Proteccion de datos personales  | Cumplimiento RGPD (acceso, exportación, borrado)  |
+| Firma de contratos              | Firma electrónica con validez legal (eIDAS)       |
+| Cifrado                         | En transito y en reposo                            |
+| Credenciales                    | Gestion profesional de secretos, sin datos en código |
+| Autenticacion                   | Sistema profesional con sesiones seguras           |

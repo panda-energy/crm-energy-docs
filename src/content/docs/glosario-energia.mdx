@@ -1,0 +1,115 @@
+---
+title: "Glosario del sector energético"
+---
+
+
+Este glosario recoge los términos más importantes del sector eléctrico español y de la plataforma Panda Energy. Esta pensado para que cualquier persona, tenga o no experiencia en el sector, pueda entender la terminología que se utiliza en el día a día de una comercializadora.
+
+Los términos están ordenados por bloques temáticos para facilitar la consulta.
+
+---
+
+## El mercado eléctrico
+
+### Comercializadora
+Empresa que vende energía al cliente final. Compra electricidad en el mercado mayorista y se encarga de toda la relación comercial: contratos, facturación, atención al cliente y gestión de los procesos regulados con la distribuidora.
+
+### Distribuidora
+Empresa propietaria de la red eléctrica local: cables, transformadores y contadores. No vende energía directamente al consumidor, pero es responsable de que la electricidad llegue físicamente al punto de suministro. Las cinco principales distribuidoras en España son:
+
+- **e-distribución** (grupo Endesa)
+- **i-DE** (grupo Iberdrola)
+- **UFD** (grupo Naturgy)
+- **Viesgo**
+- **Begasa**
+
+### OMIE (Operador del Mercado Ibérico de Electricidad)
+Organismo que gestiona el mercado mayorista de electricidad en España y Portugal. Fija el precio de la energía hora a hora mediante subastas diarias. Las comercializadoras con tarifas indexadas utilizan estos precios como referencia.
+
+### CNMC (Comision Nacional de los Mercados y la Competencia)
+Regulador español que supervisa el sector energético, entre otros. Define las reglas del juego: los formatos de los documentos, los plazos de los procesos y los derechos de consumidores y empresas.
+
+---
+
+## El punto de suministro
+
+### CUPS (Codigo Universal de Punto de Suministro)
+Identificador único de cada punto donde se consume energía en España. Es como el "DNI" de un contador o una conexión a la red. Cada vivienda, local comercial o nave industrial tiene su propio CUPS.
+
+- Formato: ES + 16 digitos + 2 letras de control (ejemplo: ES0031406284859001TG).
+- El CUPS no cambia aunque cambie el titular o la comercializadora.
+- Un mismo cliente puede tener varios CUPS (por ejemplo, una empresa con varias oficinas).
+
+### SIPS (Sistema de Información de Puntos de Suministro)
+Base de datos regulada que contiene la información técnica de cada CUPS: potencia contratada, tarifa vigente, titular actual, distribuidora responsable y consumos históricos. Las comercializadoras consultan SIPS antes de hacer una oferta para saber las condiciones reales del punto.
+
+### Potencia contratada
+Capacidad máxima de consumo simultaneo de un punto de suministro, medida en kilovatios (kW). Determina cuanta electricidad puede usar a la vez una vivienda o negocio. Afecta directamente al coste fijo de la factura: a mayor potencia contratada, mayor coste fijo.
+
+### Tarifa de acceso
+Tipo de peaje que paga el consumidor por usar la red eléctrica. Define los periodos horarios y los precios que se aplican. Las más habituales son:
+
+- **2.0TD** — Tarifa para consumidores domésticos y pequeños negocios (hasta 15 kW).
+- **3.0TD** — Tarifa para pymes y comercios medianos (más de 15 kW).
+- **6.x** — Tarifas para grandes consumidores industriales.
+
+### Autoconsumo
+Modelo en el que el consumidor genera su propia energía, normalmente mediante paneles solares. La energía que no se consume puede verterse a la red y compensarse en la factura. Esta regulado por ley y requiere registro del punto de suministro como instalación de autoconsumo.
+
+---
+
+## Procesos regulados (ATR)
+
+### ATR (Acceso de Terceros a la Red)
+Conjunto de procesos regulados por la CNMC que permiten a las comercializadoras interactuar con las distribuidoras. Cada vez que un cliente quiere cambiar de comercializadora, dar de alta un nuevo punto, modificar su potencia o cualquier otra gestión sobre la red, se tramita mediante un flujo ATR.
+
+### Flujos ATR
+Cada tipo de gestión tiene un código que identifica el proceso. Los más importantes son:
+
+- **C1** — Cambio de comercializador. El cliente deja su comercializadora actual y se pasa a otra.
+- **C2** — Cambio de comercializador con modificación. Ademas del cambio, se modifica alguna condición (por ejemplo, la potencia).
+- **A3** — Alta directa. Se da de alta un punto de suministro que estaba sin servicio.
+- **B1** — Baja del suministro. Se da de baja definitiva un punto.
+- **M1** — Modificacion contractual. Se cambia alguna condición del contrato sin cambiar de comercializadora (por ejemplo, subir la potencia).
+- **D1** — Notificacion de la distribuidora. Comunicaciones que la distribuidora envía a la comercializadora (cortes, lecturas, incidencias).
+- **R1** — Reclamacion. Proceso formal para resolver discrepancias entre comercializadora y distribuidora.
+- **P0** — Consulta precontractual. La comercializadora solicita datos del punto antes de hacer una oferta.
+
+---
+
+## Contratacion y facturación
+
+### Pipeline comercial
+Flujo por etapas que sigue un potencial cliente (lead) desde el primer contacto hasta que firma un contrato. En Panda Energy, el pipeline se visualiza como un tablero donde cada tarjeta avanza por columnas: nuevo contacto, oferta enviada, negociación, contrato firmado.
+
+### Presupuesto / Oferta
+Documento que la comercializadora entrega al potencial cliente con el detalle de precios y condiciones para su punto de suministro. Se genera a partir de los datos reales del CUPS consultados en SIPS.
+
+### Firma digital
+Proceso de firma electrónica de contratos con validez legal. El cliente recibe un enlace, revisa el documento y firma desde su móvil u ordenador. Panda Energy utiliza proveedores de firma certificados que cumplen con la normativa europea (eIDAS).
+
+### OCR de factura
+Lectura automática de una factura en formato PDF mediante inteligencia artificial. El sistema extrae los datos relevantes (CUPS, consumo, importe, tarifa, potencia) sin necesidad de introducirlos manualmente. Util para preparar ofertas comparativas rapidas.
+
+---
+
+## Comunicacion
+
+### WhatsApp Business
+Canal de comunicación integrado en la plataforma que permite enviar y recibir mensajes de WhatsApp directamente desde la ficha del cliente. Los mensajes entrantes de nuevos contactos pueden generar leads automáticamente.
+
+### Webhook
+Notificacion automática que un sistema externo envía a Panda Energy cuando ocurre algo relevante. Por ejemplo: cuando un cliente firma un contrato digitalmente, el proveedor de firma envía un webhook para que la plataforma se entere al instante y actualice el estado.
+
+---
+
+## Conceptos de la plataforma
+
+### Multi-tenant
+Capacidad de la plataforma de dar servicio a múltiples comercializadoras de forma simultanea y completamente aislada. Cada comercializadora es un "tenant" (inquilino) independiente: solo ve sus propios datos, clientes, contratos y configuración. Ninguna comercializadora puede acceder a la información de otra.
+
+### Lead
+Contacto o potencial cliente que ha mostrado interes en contratar con la comercializadora. Puede entrar por distintos canales: formulario web, llamada telefónica, WhatsApp o importación de una lista.
+
+### Idempotencia
+Garantia de que una operación produce el mismo resultado aunque se ejecute varias veces. Esto es especialmente importante en procesos criticos: si se envía un cambio de comercializador y hay un problema de conexión, el sistema garantiza que no se tramitara el mismo cambio dos veces.

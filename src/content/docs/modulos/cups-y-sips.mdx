@@ -1,0 +1,66 @@
+---
+title: "CUPS y SIPS"
+---
+
+
+Panda Energy permite registrar y gestionar los puntos de suministro eléctrico de cada cliente. Con un solo clic se pueden consultar los datos oficiales del punto (SIPS) para conocer su situacion actual antes de preparar una oferta o tramitar un cambio de comercializadora.
+
+---
+
+## Qué es un CUPS
+
+El CUPS (Codigo Universal de Punto de Suministro) es el identificador único que tiene cada punto de conexión a la red eléctrica en España. Es como el "DNI" del contador: no cambia aunque el cliente cambie de comercializadora o de titular. Para más detalle, consultar el glosario del producto.
+
+## Registrar puntos de suministro
+
+Desde la plataforma se pueden dar de alta los puntos de suministro de los clientes. Al introducir el código CUPS, el sistema válida automáticamente que el formato sea correcto:
+
+- **España:** empieza por "ES", seguido de 16 digitos y 2 letras de control.
+- **Portugal:** empieza por "PT" con su formato propio.
+
+Si el formato no es válido, el sistema avisa inmediatamente para evitar errores antes de enviar cualquier trámite.
+
+## Consulta SIPS
+
+SIPS (Sistema de Información de Puntos de Suministro) es la base de datos oficial que contiene la información de cada punto eléctrico. Con Panda Energy, basta un clic en el boton "Consultar SIPS" para obtener:
+
+- Distribuidora asignada al punto
+- Potencia contratada actual
+- Tarifa de acceso vigente
+- Datos del titular actual
+- Consumo histórico disponible
+
+Esta información es fundamental para preparar una oferta precisa y para los trámites de cambio de comercializadora.
+
+## Cache de consultas
+
+Para evitar consultas innecesarias, el sistema guarda los datos de cada consulta SIPS durante 7 días. Si alguien consulta el mismo CUPS dentro de ese periodo, los datos se muestran al instante sin volver a consultar la fuente oficial. Pasados los 7 días, se actualiza automáticamente.
+
+## Vinculacion a leads y contratos
+
+Cada punto de suministro se puede vincular a un lead y, posteriormente, a un contrato. Esto permite:
+
+- Ver todos los puntos de suministro asociados a un cliente.
+- Preparar contratos directamente desde la ficha del CUPS.
+- Hacer seguimiento de que puntos ya están contratados y cuales están pendientes.
+
+## Vista de puntos de suministro
+
+La pantalla de CUPS muestra una tabla con todos los puntos registrados, con buscador rápido por código o titular. Al hacer clic en un punto, se abre su ficha detallada con pestañas para ver:
+
+- Datos básicos del punto
+- Informacion SIPS actualizada
+- Contratos vinculados
+- Historial de consultas y cambios
+
+---
+
+## Funcionalidades incluidas
+
+- Registro de puntos de suministro con código CUPS
+- Validacion automática de formato (España, Portugal)
+- Consulta SIPS con un clic: distribuidora, potencia, tarifa, titular
+- Cache de 7 días para consultas SIPS repetidas
+- Vinculacion de CUPS a leads y contratos
+- Vista en tabla con buscador rápido
+- Ficha detallada con pestañas (datos, SIPS, contratos, historial)

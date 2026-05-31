@@ -1,0 +1,64 @@
+---
+title: "Cambio de comercializador (proceso ATR)"
+---
+
+
+Una vez que el contrato está firmado, Panda Energy gestiona automáticamente el cambio de comercializador ante la distribuidora eléctrica. Este proceso regulado, conocido como ATR (Acceso de Terceros a la Red), se realiza mediante el intercambio de mensajes XML regulatorios con la distribuidora correspondiente.
+
+---
+
+## Flujo C1 -- Cambio de comercializador
+
+El C1 es el flujo más habitual: el cliente ya tiene suministro activo con otra comercializadora y quiere cambiarse.
+
+1. **Generacion del XML regulatorio.** El sistema genera automáticamente el mensaje en formato XML según las especificaciones de la CNMC. Este mensaje contiene los datos del cliente, del punto de suministro (CUPS) y de la nueva comercializadora.
+
+2. **Envio a la distribuidora.** El XML se envía automáticamente por SFTP a la distribuidora que gestiona ese punto de suministro (por ejemplo, e-distribución, i-DE, UFD, Viesgo o Begasa). El envío queda registrado con fecha y hora.
+
+3. **Procesamiento por parte de la distribuidora.** La distribuidora recibe el mensaje, lo válida contra sus sistemas y emite una respuesta.
+
+4. **Recepcion de la respuesta.** Panda Energy recoge automáticamente la respuesta de la distribuidora y actualiza el estado del contrato:
+
+   - **Aceptado**: el cambio ha sido aprobado. El contrato pasa a estado "activo" y el cambio se efectuara en la fecha que indica la distribuidora. Se notifica al comercial y al cliente.
+   - **Rechazado**: la distribuidora ha encontrado un problema (datos incorrectos, deuda pendiente del anterior comercializador, CUPS no contractable, etc.). Se registra el motivo del rechazo. El agente de inteligencia artificial de back-office analiza automáticamente la causa y propone una correccion (disponible próximamente).
+   - **Sin respuesta (timeout)**: si la distribuidora no responde dentro del plazo regulatorio, el sistema reintenta el envío automáticamente.
+
+5. **Registro en el historial.** Cada paso del proceso queda registrado en el historial del contrato: envío del XML, respuesta recibida, reintentos, cambios de estado y notificaciones.
+
+6. **Notificaciones.** Tanto el comercial como el cliente reciben notificaciones del resultado: aceptacion, rechazo o necesidad de accion adicional.
+
+---
+
+## Otros flujos ATR
+
+### A3 -- Alta directa
+
+Se utiliza cuando el punto de suministro es nuevo (por ejemplo, una obra nueva o un local que nunca ha tenido contrato). En lugar de cambiar de comercializador, se da de alta el suministro directamente. El proceso es similar al C1: se genera el XML correspondiente, se envía a la distribuidora y se espera la respuesta de activación.
+
+### B1 -- Baja de suministro
+
+Se utiliza para dar de baja un punto de suministro que ya no se necesita. La comercializadora envía la solicitud de baja a la distribuidora, que la procesa y confirma la fecha de desconexión.
+
+---
+
+## Panel de seguimiento ATR
+
+Todos los mensajes ATR enviados y recibidos se visualizan en un panel centralizado dentro de Panda Energy. Desde este panel el operador puede:
+
+- Ver el estado de cada mensaje (enviado, aceptado, rechazado, pendiente).
+- Filtrar por distribuidora, tipo de flujo (C1, A3, B1) o estado.
+- Consultar el detalle de cada mensaje, incluyendo la línea temporal completa de eventos.
+- Reintentar manualmente un envío si es necesario.
+
+---
+
+## Resultado
+
+Al finalizar el proceso:
+
+- El contrato queda actualizado con su estado definitivo (activo, rechazado o pendiente).
+- Todos los mensajes XML intercambiados con la distribuidora quedan almacenados y consultables.
+- El historial del contrato refleja cada paso del proceso ATR con fechas y estados.
+- El comercial recibe una notificación con el resultado.
+- El cliente recibe comunicación del estado de su cambio de comercializador.
+- En caso de rechazo, queda registrado el motivo y, cuando el agente de back-office este disponible, la propuesta de correccion automática.

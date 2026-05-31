@@ -1,0 +1,64 @@
+---
+title: "Gestion de rechazos de distribuidoras"
+---
+
+
+Cuando una distribuidora rechaza un mensaje ATR (por ejemplo, un cambio de comercializador C1), Panda Energy gestiona el rechazo de forma estructurada para identificar la causa, corregir el error y reintentar el envío lo antes posible. El objetivo es minimizar el tiempo que un contrato queda bloqueado por un rechazo.
+
+---
+
+## Proceso de gestión de un rechazo
+
+1. **Recepcion del rechazo.** La distribuidora envía una respuesta de rechazo con un código y un motivo. Panda Energy recoge automáticamente está respuesta y actualiza el estado del mensaje ATR a "rechazado".
+
+2. **Visualizacion en el panel.** El mensaje rechazado aparece destacado en el panel ATR. El operador puede ver de un vistazo cuantos mensajes están rechazados, filtrar por distribuidora o por tipo de error, y acceder al detalle de cada uno.
+
+3. **Analisis automático por el agente de back-office (disponible próximamente).** El agente de inteligencia artificial de back-office analiza automáticamente el rechazo:
+   - Identifica el tipo de error a partir del código y la descripción del rechazo.
+   - Determina la causa más probable (titular incorrecto, NIF que no coincide, CUPS no contractable, deuda pendiente, etc.).
+   - Propone la correccion necesaria de forma concreta (por ejemplo, "actualizar el nombre del titular a Maria Lopez Garcia según el dato de SIPS").
+   - Presenta la propuesta al operador para su revision y aprobación.
+
+4. **Revision y aprobación por el operador.** El operador revisa la correccion propuesta. Puede aprobarla tal cuál, modificarla si lo considera necesario, o descartarla y aplicar una correccion manual diferente.
+
+5. **Reenvio del mensaje corregido.** Una vez aprobada la correccion, el sistema genera automáticamente un nuevo mensaje XML con los datos corregidos y lo envía de nuevo a la distribuidora.
+
+6. **Reintento manual.** Si el reintento automático no es posible o falla, el operador puede reintentar manualmente el envío desde el panel ATR con un solo clic.
+
+---
+
+## Motivos comunes de rechazo
+
+| Codigo | Motivo | Qué significa | Cómo se resuelve |
+|--------|--------|---------------|------------------|
+| 01 | Titular incorrecto | El nombre del titular no coincide con el que tiene la distribuidora | Corregir el nombre del titular con los datos que figuran en SIPS o en la documentación del cliente |
+| 02 | NIF no coincide | El documento de identidad enviado no corresponde con el registrado en la distribuidora | Verificar el NIF/CIF del cliente y corregirlo en el contrato |
+| 03 | CUPS no contractable | El punto de suministro no está en condiciones de ser contratado (puede estar dado de baja o en proceso de obra) | Confirmar el estado del CUPS con la distribuidora o gestionar un alta previa (A3) |
+| 04 | Deuda pendiente | Existe una deuda con la comercializadora saliente que impide el cambio | Informar al cliente para que regularice la deuda, o verificar si la deuda corresponde a otro titular |
+| 05 | Datos técnicos incorrectos | La potencia solicitada o la tarifa de acceso no son válidas para ese punto de suministro | Consultar SIPS para verificar los datos técnicos correctos y ajustar la solicitud |
+| 06 | Solicitud duplicada | Ya existe una solicitud de cambio en trámite para ese CUPS | Esperar a que finalice el trámite anterior o, si es un error, anular la solicitud duplicada |
+
+---
+
+## Panel de rechazos
+
+Desde el panel ATR, el operador tiene una vista dedicada a los rechazos que le permite:
+
+- Ver todos los mensajes rechazados ordenados por fecha.
+- Filtrar por distribuidora, tipo de flujo o motivo de rechazo.
+- Acceder al detalle de cada rechazo con el código, la descripción y la propuesta de correccion.
+- Aprobar correcciones y lanzar reintentos.
+- Consultar el historial completo de intentos de un mismo contrato.
+
+---
+
+## Resultado
+
+Al finalizar la gestión de un rechazo:
+
+- El mensaje corregido queda enviado a la distribuidora con un nuevo intento registrado.
+- El historial del contrato refleja cada rechazo, la correccion aplicada y el reintento.
+- El operador puede consultar en cualquier momento el estado actualizado del proceso.
+- Si el reintento es aceptado, el contrato pasa a estado "activo" y se notifica al comercial y al cliente.
+- Si el reintento es rechazado nuevamente, se repite el ciclo de analisis y correccion.
+- Se generan estadísticas de rechazos por distribuidora y por motivo, útiles para detectar patrones y prevenir errores recurrentes.

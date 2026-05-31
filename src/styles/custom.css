@@ -1,0 +1,20 @@
+/* Custom Kuro Energy dark theme overrides */
+:root {
+	--sl-color-accent-low: #0d3320;
+	--sl-color-accent: #10b981;
+	--sl-color-accent-high: #6ee7b7;
+	--sl-color-white: #ffffff;
+	--sl-color-gray-1: #e4e4e7;
+	--sl-color-gray-2: #a1a1aa;
+	--sl-color-gray-3: #71717a;
+	--sl-color-gray-4: #3f3f46;
+	--sl-color-gray-5: #27272a;
+	--sl-color-gray-6: #18181b;
+	--sl-color-black: #09090b;
+}
+
+[data-theme='light'] {
+	--sl-color-accent-low: #d1fae5;
+	--sl-color-accent: #059669;
+	--sl-color-accent-high: #064e3b;
+}

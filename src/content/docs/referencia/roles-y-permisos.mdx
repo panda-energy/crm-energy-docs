@@ -1,0 +1,86 @@
+---
+title: "Roles y permisos"
+---
+
+
+Panda Energy utiliza un sistema de roles para controlar que puede hacer cada persona dentro de la plataforma. Cada usuario tiene asignado un rol que determina las pantallas que puede ver y las acciones que puede realizar.
+
+Este documento describe los roles disponibles y el concepto de organización (tenant) que garantiza la separacion entre comercializadoras.
+
+---
+
+## Concepto de organización (tenant)
+
+Cada comercializadora que utiliza Panda Energy opera dentro de su propia organización. Una organización es un espacio completamente independiente y aislado:
+
+- Cada organización tiene sus propios clientes, contratos, leads, CUPS, productos y configuración.
+- Los usuarios de una organización no pueden ver ni acceder a los datos de otra.
+- Un usuario pertenece a una única organización.
+- El administrador de cada organización gestiona sus propios usuarios y roles.
+
+---
+
+## Roles disponibles
+
+### Administrador
+
+Es el responsable máximo de la plataforma dentro de la comercializadora. Tiene acceso completo a todas las funciones.
+
+- Gestiona usuarios: puede invitar, modificar roles y desactivar cuentas.
+- Configura la organización: datos de la empresa, marca, productos y tarifas.
+- Accede a todos los módulos sin restriccion: leads, pipeline, CUPS, contratos, ATR, comunicaciones, informes.
+- Puede exportar y eliminar datos (cumplimiento RGPD).
+- Gestiona integraciones con sistemas externos (WhatsApp, firma digital, distribuidoras).
+
+### Comercial (ventas)
+
+Perfil orientado al equipo de ventas que trabaja con leads y oportunidades comerciales.
+
+- Crea y gestiona leads y oportunidades en el pipeline.
+- Consulta datos de CUPS y puntos de suministro.
+- Genera presupuestos y ofertas para clientes potenciales.
+- Crea contratos y los envía a firma digital.
+- Envia y recibe mensajes por WhatsApp y correo.
+- Consulta el historial de actividad de sus clientes.
+- No puede gestionar usuarios ni configurar la organización.
+
+### Agente (campo)
+
+Perfil diseñado para el personal que trabaja a pie de calle visitando clientes o realizando gestiones presenciales. Optimizado para su uso desde la aplicación móvil.
+
+- Consulta y actualiza leads asignados.
+- Registra visitas y actividades de campo.
+- Consulta datos básicos de CUPS.
+- Sube documentos y fotografias (facturas, contadores, firmas).
+- Envia mensajes por WhatsApp desde la ficha del cliente.
+- No puede crear productos, tarifas ni modificar contratos existentes.
+- No puede gestionar usuarios ni configurar la organización.
+
+### Visor (solo lectura)
+
+Perfil para personas que necesitan consultar información sin modificarla. Util para directivos, auditores o personal de soporte externo.
+
+- Puede ver todos los módulos: leads, pipeline, CUPS, contratos, comunicaciones.
+- Puede consultar informes y estadísticas.
+- No puede crear, modificar ni eliminar ningun registro.
+- No puede enviar mensajes ni generar documentos.
+- No puede gestionar usuarios ni configurar la organización.
+
+---
+
+## Resumen de permisos por rol
+
+| Accion                              | Administrador | Comercial | Agente | Visor |
+|--------------------------------------|:---:|:---:|:---:|:---:|
+| Ver leads y pipeline                 | Si  | Si  | Si  | Si  |
+| Crear y editar leads                 | Si  | Si  | Si  | No  |
+| Generar presupuestos                 | Si  | Si  | No  | No  |
+| Crear y enviar contratos             | Si  | Si  | No  | No  |
+| Consultar CUPS y SIPS               | Si  | Si  | Si  | Si  |
+| Enviar mensajes (WhatsApp, correo)  | Si  | Si  | Si  | No  |
+| Subir documentos y fotos            | Si  | Si  | Si  | No  |
+| Gestionar productos y tarifas       | Si  | No  | No  | No  |
+| Configurar integraciones            | Si  | No  | No  | No  |
+| Gestionar usuarios y roles          | Si  | No  | No  | No  |
+| Exportar y eliminar datos (RGPD)    | Si  | No  | No  | No  |
+| Ver informes y estadísticas         | Si  | Si  | Si  | Si  |

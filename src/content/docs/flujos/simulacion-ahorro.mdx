@@ -1,0 +1,59 @@
+---
+title: "Simulacion de ahorro para un cliente"
+---
+
+
+La simulación de ahorro permite mostrar al cliente de forma clara y visual cuánto se ahorraría si contratase con la comercializadora. El proceso parte de la factura actual del cliente y, en pocos segundos, genera una comparativa completa entre lo que paga ahora y lo que pagaría con la nueva tarifa.
+
+---
+
+## Pasos del proceso
+
+1. **Subida de la factura actual.** El comercial sube el PDF de la última factura del cliente al sistema. Puede arrastrarlo a la pantalla, seleccionarlo desde el explorador de archivos, o (en la app móvil) fotografiarlo directamente con la cámara del teléfono.
+
+2. **Lectura automática de la factura (OCR).** La inteligencia artificial de Panda Energy lee el documento automáticamente y extrae los datos relevantes:
+   - **CUPS**: código identificativo del punto de suministro.
+   - **Consumo anual**: energía consumida en kWh durante el último año o periodo disponible.
+   - **Importe total anual**: lo que el cliente ha pagado en el periodo.
+   - **Potencia contratada**: la potencia que tiene actualmente en cada periodo.
+   - **Tarifa de acceso**: el tipo de tarifa regulada que aplica al punto de suministro (por ejemplo, 2.0TD, 3.0TD, 6.1TD).
+   - **Comercializadora actual**: la empresa con la que el cliente tiene contrato ahora.
+
+   El comercial puede revisar los datos extraidos y corregirlos si fuese necesario antes de continuar.
+
+3. **Comparacion con las tarifas de la comercializadora.** El sistema toma los datos de la factura y los cruza automáticamente con las tarifas disponibles de la comercializadora. Se calcula el coste que tendria el cliente con cada producto ofertado.
+
+4. **Presentacion de la comparativa visual.** Se muestra al cliente una pantalla con la comparativa:
+   - **Lo que paga ahora**: importe anual con su comercializadora actual.
+   - **Lo que pagaría**: importe anual estimado con la nueva tarifa.
+   - **Ahorro estimado**: expresado en euros al año y en porcentaje sobre la factura actual.
+   - **Desglose por periodos**: si la tarifa tiene varios periodos horarios (punta, llano, valle), se muestra el detalle de ahorro en cada uno.
+
+5. **Ajuste de la tarifa propuesta.** El comercial puede cambiar la tarifa propuesta, ajustar la potencia recomendada o modificar parametros del cálculo. La simulación se recalcula al instante, permitiendo explorar distintos escenarios con el cliente.
+
+6. **Inicio de la contratación.** Si el cliente está conforme con la simulación y quiere contratar, el comercial puede iniciar directamente el wizard de contratación desde la misma pantalla, sin tener que volver a introducir datos.
+
+---
+
+## Variante móvil
+
+Desde la app móvil, el comercial puede realizar la simulación de ahorro durante una visita al cliente:
+
+- Fotografiar la factura con la cámara del móvil. No es necesario tener el PDF: basta con una foto clara del documento.
+- La IA lee la foto y extrae los datos de la misma forma que con un PDF.
+- La comparativa se muestra directamente en la pantalla del móvil.
+- Si el cliente acepta, se puede iniciar la contratación y la firma sin salir de la app.
+
+Esto permite ofrecer una simulación de ahorro al instante, en cualquier lugar, sin necesidad de equipamiento especial ni de volver a la oficina.
+
+---
+
+## Resultado
+
+Al finalizar la simulación:
+
+- Queda registrada en el sistema la simulación de ahorro asociada al lead y al CUPS del cliente.
+- Los datos extraidos de la factura se almacenan para su uso posterior (contratación, histórico).
+- El comercial puede recuperar la simulación en cualquier momento para consultarla o reenviarsela al cliente.
+- Si el cliente no contrata en el momento, la simulación queda vinculada a su ficha para retomar la conversacion más adelante.
+- El sistema no envía notificaciones automáticas en está fase; la comunicación del resultado es responsabilidad del comercial.
